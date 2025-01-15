@@ -1,0 +1,8 @@
+
+services:
+  app:
+    image: node:22-alpine
+    container_name: node22
+    volumes:
+      - ./src:/src
+    working_dir: "/src"

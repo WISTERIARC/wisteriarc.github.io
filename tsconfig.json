@@ -1,0 +1,19 @@
+{
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "exactOptionalPropertyTypes": false, 
+    "allowImportingTsExtensions": true,
+     "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@images/*": ["src/images/*"]
+  }
+  },
+  "exclude": ["component-types-sb.d.ts"],
+}
