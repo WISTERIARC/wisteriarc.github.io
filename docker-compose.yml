@@ -1,8 +1,31 @@
 
+# サービス（コンテナ）の定義
 services:
-  app:
-    image: node:22-alpine
-    container_name: node22
+  # Astroアプリケーションのサービス名
+  astro-app:
+    # カレントディレクトリのDockerfileを使用してビルド
+    build: .
+    
+    # ポートマッピング - ホストの4321番ポートをコンテナの4321番ポートに接続
+    # Astroのデフォルトポートは4321
+    ports:
+      - "4321:4321"
+    
+    # ボリュームマウントの設定
     volumes:
-      - ./src:/src
-    working_dir: "/src"
+      # カレントディレクトリをコンテナの/appにマウント（ソースコードの同期用）
+      - .:/app
+      # node_modulesを匿名ボリュームとしてマウント（パフォーマンス向上のため）
+      - /app/node_modules
+      # pnpmのキャッシュストアを永続化（パッケージの再利用のため）
+      - pnpm-store:/root/.local/share/pnpm/store
+    
+    # 環境変数の設定
+    environment:
+      # Astroの開発サーバーをすべてのネットワークインターフェースでリッスン
+      - HOST=0.0.0.0
+
+# 名前付きボリュームの定義
+volumes:
+  # pnpmのパッケージキャッシュを保存するための永続ボリューム
+  pnpm-store:
