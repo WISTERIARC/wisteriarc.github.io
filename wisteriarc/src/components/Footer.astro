@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import type { SbBlokData } from "@storyblok/astro";
+import type { MainFooterStoryblok } from "../../component-types-sb";
+
+interface Props {
+  blok: MainFooterStoryblok;
+  language: string;
+}
+
+const { blok, language } = Astro.props;
+
+const { footer_menu, socials, phone_number, opening_hours } = blok;
+---
+
+<footer
+  class="flex w-full justify-between bg-primary-700 px-4 py-4 text-primary-50 max-sm:flex-col md:px-20"
+>
+  <div class="max-sm:mb-4 max-sm:border-b max-sm:pb-2">
+    <h3 class="max-sm:text-center">Kawusia</h3>
+    {
+      !!socials?.length && (
+        <div class="flex flex-shrink justify-around">
+          {socials.map(({ social_icon, social_link }) => (
+            <a href={social_link.url}>
+              <Image
+                src={`${social_icon.filename}/m/filters:quality(10)`}
+                alt=""
+                width={80}
+                height={80}
+              />
+            </a>
+          ))}
+        </div>
+      )
+    }
+    <a
+      href={`tel:${phone_number}`}
+      class="block pt-4 text-center text-md underline">{phone_number}</a
+    >
+  </div>
+  {
+    !!opening_hours?.length && (
+      <div>
+        <p class="pb-4 font-bold">Opening Hours</p>
+        {
+          <ul class=" md:w-64">
+            {opening_hours.map((day) => (
+              <li>
+                <p class="flex justify-between pb-1">
+                  <span class="pr-2">{day.day}</span>
+                  <span>{day.hours}</span>
+                </p>
+              </li>
+            ))}
+          </ul>
+        }
+      </div>
+    )
+  }
+  {
+    !!footer_menu?.length && (
+      <div>
+        <ul class="flex h-full flex-col justify-start text-base font-bold max-sm:hidden">
+          {footer_menu.map((menuItem: SbBlokData) => (
+            <li class="mb-10">
+              <StoryblokComponent blok={menuItem} language={language} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+</footer>
