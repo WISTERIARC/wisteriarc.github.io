@@ -58,6 +58,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       
+      # ビルドディレクトリの確認
+      - name: Check build directory
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+          echo "Checking potential build directories:"
+          ls -la ./dist || true
+          ls -la ./.github/pages || true
+          ls -la ./build || true
+
       # Astroサイトのビルド
       - name: Build site
         run: pnpm run build
