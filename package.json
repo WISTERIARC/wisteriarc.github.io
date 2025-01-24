@@ -3,21 +3,20 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-	  "dev": "astro dev",
-	  "start": "astro dev",
-	  "build": "astro check && astro build",
-	  "preview": "astro preview",
-	  "astro": "astro"
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
 	},
 	"dependencies": {
 		"astro": "^4.5.18"
 	},
-
 	"devDependencies": {
-		"typescript": "^5.3.3",
-		"@types/node": "^22.10.9",
-        "@astrojs/ts-plugin": "^1.5.3",
-        "@astrojs/check": "^0.4.1"
+		"@astrojs/check": "^0.4.1",
+		"@astrojs/ts-plugin": "^1.5.3",
+		"@types/node": "^22.10.10",
+		"typescript": "^5.3.3"
 	},
 	"packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }
