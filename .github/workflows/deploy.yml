@@ -57,6 +57,10 @@ jobs:
       # 依存関係のインストール
       - name: Install dependencies
         run: pnpm install
+
+      # Astroサイトのビルド
+      - name: Build site
+        run: pnpm run build
       
       # ビルドディレクトリの確認
       - name: Check build directory
@@ -66,13 +70,13 @@ jobs:
           echo "Directory contents:"
           ls -la
           echo "Checking potential build directories:"
+          ls -la dist || true
           ls -la ./dist || true
           ls -la ./.github/pages || true
           ls -la ./build || true
-
-      # Astroサイトのビルド
-      - name: Build site
-        run: pnpm run build
+          ls -la ./wisteriarc/dist || true
+          ls -la ./wisteriarc/.github/pages || true
+          ls -la ./wisteriarc/build || true
       
       # GitHub Pagesへのデプロイ準備
       - name: Upload artifact
