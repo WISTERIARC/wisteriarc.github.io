@@ -67,13 +67,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site-build
-          path: ./wisteriarc/dist  # ./dist から dist に変更
+          path: dist  # ./dist から dist に変更
   
       - name: Check artifact upload
         run: |
           ls -la dist
           echo "Artifact contents:"
-          find ./wisteriarc/dist
+          find dist
 
       - name: Verify build
         run: |
@@ -98,7 +98,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: site-build
-          path: ./wisteriarc/dist  # パスを dist に統一
+          path: dist  # パスを dist に統一
       
       # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
