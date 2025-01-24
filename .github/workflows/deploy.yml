@@ -43,11 +43,13 @@ jobs:
             - recursive: true
               args: [--no-frozen-lockfile]
       
-      # 依存関係のキャッシュ
+      # 依存関係とnode_modulesの両方をキャッシュ
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.pnpm-store
+          path: |
+            ~/.pnpm-store
+            **/node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
@@ -65,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site-build
-          path: ./dist
+          path: dist  # ./dist から dist に変更
   
   deploy:
     needs: build
@@ -75,15 +77,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-      # ビルド成果物のダウンロード
+      # アーティファクトのダウンロードとデプロイ前のチェックアウト
+      - name: Checkout
+        uses: actions/checkout@v4
+      
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: site-build
-          path: ./dist
+          path: dist  # パスを dist に統一
       
       # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
