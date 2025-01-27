@@ -15,7 +15,10 @@ export default defineConfig({
   site: "https://github.com/WISTERIARC/wisteriarc.github.io",
   integrations: [
     storyblok({
-      accessToken: env.STORYBLOK_TOKEN,
+      accessToken:
+        import.meta.env.MODE === 'development'
+        ? env.STORYBLOK_PREVIEW_TOKEN
+        : env.STORYBLOK_PUBLIC_TOKEN,
       bridge: isPreview(env.STORYBLOK_IS_PREVIEW),
       components: {
         config: "storyblok/Config",
