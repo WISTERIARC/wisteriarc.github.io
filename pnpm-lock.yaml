@@ -33,8 +33,11 @@ importers:
         specifier: ^4.3.3
         version: 4.3.3
       '@storyblok/astro':
-        specifier: ^4.1.1
-        version: 4.1.1(astro@4.16.18(@types/node@22.10.10)(rollup@4.32.0)(typescript@5.7.3))
+        specifier: ^5.1.2
+        version: 5.1.2(astro@4.16.18(@types/node@22.10.10)(rollup@4.32.0)(typescript@5.7.3))
+      '@storyblok/js':
+        specifier: ^3.2.2
+        version: 3.2.2
       '@tailwindcss/nesting':
         specifier: 0.0.0-insiders.565cd3e
         version: 0.0.0-insiders.565cd3e(postcss@8.5.1)
@@ -983,10 +986,13 @@ packages:
   '@shikijs/vscode-textmate@10.0.1':
     resolution: {integrity: sha512-fTIQwLF+Qhuws31iw7Ncl1R3HUDtGwIipiJ9iU+UsDUwMhegFcQKQHd51nZjb7CArq0MvON8rbgCGQYWHUKAdg==}
 
-  '@storyblok/astro@4.1.1':
-    resolution: {integrity: sha512-7S17JhbOT8AdaoYq1EaapnaVbqjokAue/ycUE1ewbS8Ni8wdZdIauxfWRLEFWbbRhJW4iOeoaRpRPDxYez9OtA==}
+  '@storyblok/astro@5.1.2':
+    resolution: {integrity: sha512-Fy9Y71dyX3C/WERXFyRBYrmjQmd4xaYr9UcyaT+vV0lXQy6i4SDo41hMJmcx5YXgVyWm+LQBtCTUaBSvjRm3WA==}
     peerDependencies:
-      astro: ^3.0.0 || ^4.0.0
+      astro: ^3.0.0 || ^4.0.0 || ^5.0.0
+
+  '@storyblok/js@3.1.9':
+    resolution: {integrity: sha512-N8QB/yn8wQxM+G9kV/RHTsynuTyaMNwiAI2KFiwuT9QPo+Zea4EmikNJY1KxrA1Q8G8YiZEm7OBp1B3QDycA6g==}
 
   '@storyblok/js@3.2.2':
     resolution: {integrity: sha512-JiBaHJRNl18vZdgf/aiv7DSMWW3pZNkEkAAxjIAXkrNDko1hn7L5YipJK8FpevNTPEIRiliNVxTMHTztlvEAbw==}
@@ -4821,12 +4827,17 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.1': {}
 
-  '@storyblok/astro@4.1.1(astro@4.16.18(@types/node@22.10.10)(rollup@4.32.0)(typescript@5.7.3))':
+  '@storyblok/astro@5.1.2(astro@4.16.18(@types/node@22.10.10)(rollup@4.32.0)(typescript@5.7.3))':
     dependencies:
-      '@storyblok/js': 3.2.2
+      '@storyblok/js': 3.1.9
       astro: 4.16.18(@types/node@22.10.10)(rollup@4.32.0)(typescript@5.7.3)
       camelcase: 8.0.0
       lodash.mergewith: 4.6.2
+
+  '@storyblok/js@3.1.9':
+    dependencies:
+      '@storyblok/richtext': 3.0.2
+      storyblok-js-client: 6.10.7
 
   '@storyblok/js@3.2.2':
     dependencies:
