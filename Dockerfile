@@ -21,4 +21,4 @@ EXPOSE 4321
 # CMD ["sh", "-c", "if [ ! -f package.json ]; then pnpm create astro@latest -- --template MichalRsa/freelance-sample-page . --yes && pnpm install; fi && pnpm run dev"]
 
 
-CMD ["sh", "-c", "pnpm install && pnpm init && pnpm run dev"]
+CMD ["sh", "-c", "pnpm install && pnpm run dev"]

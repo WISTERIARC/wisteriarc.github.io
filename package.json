@@ -1,22 +1,60 @@
 {
-	"name": "wisteriarc.github.io",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"astro": "^4.5.18"
-	},
-	"devDependencies": {
-		"@astrojs/check": "^0.4.1",
-		"@astrojs/ts-plugin": "^1.5.3",
-		"@types/node": "^22.10.10",
-		"typescript": "^5.3.3"
-	},
-	"packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  "name": "wisteriarc",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "eslint 'src/**'",
+    "proxy": "local-ssl-proxy --source 3010 --target 4321 --cert localhost.pem --key localhost-key.pem",
+    "generate-sb-types": "storyblok-generate-ts source=./components.277873.json target=./component-types-sb",
+    "prepare-space": "storyblok-space-quickstart"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@astrojs/netlify": "^5.5.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.5",
+    "@astrojs/ts-plugin": "^1.5.3",
+    "@fontsource/lora": "^5.1.1",
+    "@fontsource/rubik": "^5.1.1",
+    "@inquirer/prompts": "^4.3.3",
+    "@storyblok/astro": "^4.1.1",
+    "@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
+    "astro": "^4.16.18",
+    "chalk": "^5.4.1",
+    "storyblok-js-client": "^6.10.7",
+    "storyblok-space-quickstart": "^1.0.6",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.3.3",
+    "vite": "^5.4.14"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@vitejs/plugin-basic-ssl": "^1.2.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-astro": "^0.26.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.6.0",
+    "postcss": "^8.5.1",
+    "postcss-import": "^16.1.0",
+    "postcss-nesting": "^12.1.5",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "storyblok-generate-ts": "^2.1.0"
+  },
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }
