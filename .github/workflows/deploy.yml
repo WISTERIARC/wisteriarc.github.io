@@ -4,6 +4,8 @@ on:
   push:
     branches: [ main ]
 
+  workflow_dispatch:
+
  # デプロイに必要なパーミッション
 permissions:
   contents: read
@@ -23,11 +25,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install, build, and upload your site
+        uses: withastro/action@v1
+
       # Node.jsセットアップ
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 18
 
       # pnpmのセットアップ
       - name: Setup pnpm
@@ -59,4 +64,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v1
