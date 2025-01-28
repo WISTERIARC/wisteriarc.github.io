@@ -24,6 +24,12 @@ services:
     environment:
       # Astroの開発サーバーをすべてのネットワークインターフェースでリッスン
       - HOST=0.0.0.0
+      - PUBLIC_PREVIEW_TOKEN=${STORYBLOK_PREVIEW_TOKEN}
+      - PUBLIC_STORYBLOK_TOKEN=${STORYBLOK_PUBLIC_TOKEN}
+      - NODE_ENV=development
+      
+    env_file:  # .envファイルを読み込む設定を追加
+      - .env
 
 # 名前付きボリュームの定義
 volumes:

@@ -10,7 +10,10 @@ RUN apt-get update && apt-get install -y \
 # pnpmをインストール
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-COPY package.json ./
+COPY package*.json pnpm-lock.yaml ./
+
+# 依存関係をインストール
+RUN pnpm install --frozen-lockfile
 
 # 開発サーバーのポートを公開
 EXPOSE 4321

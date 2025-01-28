@@ -15,10 +15,11 @@ export default defineConfig({
   site: "https://github.com/WISTERIARC/wisteriarc.github.io",
   integrations: [
     storyblok({
-      accessToken:
-        import.meta.env.MODE === 'development'
-        ? env.STORYBLOK_PREVIEW_TOKEN
-        : env.STORYBLOK_PUBLIC_TOKEN,
+      // accessToken:
+        // import.meta.env.MODE === 'development'
+        // ? env.STORYBLOK_PREVIEW_TOKEN
+        // : env.STORYBLOK_PUBLIC_TOKEN,
+      accessToken: process.env.PUBLIC_STORYBLOK_TOKEN,
       bridge: isPreview(env.STORYBLOK_IS_PREVIEW),
       components: {
         config: "storyblok/Config",
@@ -42,10 +43,17 @@ export default defineConfig({
         contact_section: "storyblok/ContactSection",
         about_us_section: "storyblok/AboutUsSection",
       },
+      apiOptions: {
+        region: 'us' // または 'eu'
+      }
     }),
     tailwind(),
     sitemap(),
   ],
+  server: {
+    host: '0.0.0.0',
+    port: 4321
+  },
   output: isPreview(env.STORYBLOK_IS_PREVIEW) ? "server" : "static",
   ...(env.STORYBLOK_ENV === "development" && {
     vite: {

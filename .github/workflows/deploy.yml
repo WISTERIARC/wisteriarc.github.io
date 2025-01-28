@@ -23,6 +23,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_STORYBLOK_TOKEN: ${{ secrets.STORYBLOK_PREVIEW_TOKEN }}
     steps:
       # コードをチェックアウト
       - name: Checkout
