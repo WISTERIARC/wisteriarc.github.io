@@ -5,6 +5,6 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
     site: 'https://wisteriarc.github.io',
-    base: '/wisteriarc.github.io',
+ //   base: '/wisteriarc.github.io',
     output: 'static'
   });
