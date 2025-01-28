@@ -58,12 +58,19 @@ jobs:
         run: pnpm run build
 
       # GitHub Pagesへのデプロイ準備
+      # - name: Upload artifact
+      #  uses: actions/upload-artifact@v4
+      #  with:
+      #    name: site-build
+      #    path: ./dist
+  
+      # GitHub Pagesへのデプロイ準備
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           name: site-build
           path: ./dist
-  
+          
       - name: Check artifact upload
         run: |
           ls -la dist
