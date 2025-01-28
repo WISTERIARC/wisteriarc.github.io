@@ -68,7 +68,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: site-build
           path: ./dist
           
       - name: Check artifact upload
@@ -99,14 +98,14 @@ jobs:
   
     steps:
       # アーティファクトのダウンロードとデプロイ前のチェックアウト
-      - name: Checkout
-        uses: actions/checkout@v4
+      # - name: Checkout
+      #  uses: actions/checkout@v4
     
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site-build
-          path: ./dist
+      #- name: Download artifact
+      #  uses: actions/download-artifact@v4
+      #  with:
+      #    name: site-build
+      #    path: ./dist
     
       # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
