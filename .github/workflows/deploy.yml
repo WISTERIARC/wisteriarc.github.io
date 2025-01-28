@@ -5,10 +5,10 @@ on:
     branches: [ main ]
 
  # デプロイに必要なパーミッション
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+#permissions:
+#  contents: read
+#  pages: write
+#  id-token: write
 
  # 同時デプロイを防ぐ
 concurrency:
