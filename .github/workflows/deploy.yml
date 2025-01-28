@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
  # デプロイに必要なパーミッション
-#permissions:
+permissions:
   contents: read
   pages: write
   id-token: write
