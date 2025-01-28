@@ -8,7 +8,12 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # pnpmをインストール
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# pnpmをインストールして、グローバルストアディレクトリを設定
+RUN corepack enable && \
+    corepack prepare pnpm@latest --activate && \
+    pnpm config set store-dir /root/.local/share/pnpm/store/v3 --global
 
 COPY package*.json pnpm-lock.yaml ./
 

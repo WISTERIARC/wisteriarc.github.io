@@ -1,4 +1,5 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "strictNullChecks": true,
     "exactOptionalPropertyTypes": false, 
@@ -9,9 +10,16 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
-      "@images/*": ["src/images/*"]
+      "@images/*": ["src/images/*"],
+      "types": ["@storyblok/astro"]
   }
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.astro"
+  ],
   "exclude": ["component-types-sb.d.ts"],
 }

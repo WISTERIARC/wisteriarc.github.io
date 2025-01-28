@@ -17,8 +17,13 @@ services:
       - .:/app
       # node_modulesを匿名ボリュームとしてマウント（パフォーマンス向上のため）
       - /app/node_modules
+      # node_modulesのマウントを修正
+      #- node_modules:/app/node_modules
       # pnpmのキャッシュストアを永続化（パッケージの再利用のため）
-      - pnpm-store:/root/.local/share/pnpm/store
+      # - pnpm-store:/root/.local/share/pnpm/store
+
+      # pnpmストアのマウントを修正
+      - pnpm-store:/root/.local/share/pnpm/store/v3
     
     # 環境変数の設定
     environment:
