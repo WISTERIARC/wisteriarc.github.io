@@ -83,6 +83,16 @@ jobs:
             exit 1
           fi
         
+      - name: List build output
+        if: always()
+        run: |
+          echo "Build directory contents:"
+          ls -la dist/
+          echo "Workspace contents:"
+          ls -la
+          echo "Checking if build directory exists:"
+          test -d dist && echo "Build directory exists" || echo "Build directory missing"
+
 #      - name: Deploy to GitHub Pages
 #        uses: peaceiris/actions-gh-pages@v3
 #        with:
@@ -111,3 +121,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
+        with:
+          artifact_name: github-pages  # デフォルト値と一致させる
