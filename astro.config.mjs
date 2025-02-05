@@ -16,6 +16,7 @@ export default defineConfig({
       extendDefaultPlugins: true,
       rehypePlugins: [[autoNewTabExternalLinks, {
         domain: 'localhost:4321'
-      }]],
-    output: 'static'
-  });
+      }]]
+   },
+   output: 'static'
+});
