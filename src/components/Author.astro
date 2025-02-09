@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import Ava from '@src/assets/img/ava.jpg';
+import Makino from '@src/assets/img/makino.jpg';
 
 type PicSize = 'sm' | 'md' | 'lg';
 interface Props {
@@ -11,7 +11,7 @@ const { picSize } = Astro.props;
 
 <div class='flex gap-4 items-center leading-tight not-prose'>
 	<a
-		href='https://github.com/syakirurahman'
+		href='#'
 		target='_blank'
 		rel='noopener noreferrer'
 		class:list={[
@@ -21,19 +21,18 @@ const { picSize } = Astro.props;
 			{ 'w-[90px] h-[90px]': picSize === 'lg' }
 		]}
 	>
-		<Image src={Ava} alt='Muhammad Syakirurohman' />
+		<Image src={Makino} alt='Shinichiro Makino' />
 	</a>
 	<div>
 		<div>
-			<a
+			<!-- a
 				href='https://github.com/syakirurahman'
 				class='block font-bold text-inherit hover:text-[var(--link-color)]'
 				target='_blank'
 				rel='noopener noreferrer'
-			>
-				Muhammad Syakirurohman
-			</a>
+			-->
+				Shinichiro Makino
+			<!-- /a -->
 		</div>
-		<small class='avatar__subtitle'>Frontend Engineer</small>
 	</div>
 </div>
