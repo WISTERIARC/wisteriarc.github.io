@@ -10,7 +10,7 @@ import partytown from "@astrojs/partytown";
 
 export default defineConfig({
     site: 'https://wisteriarc.github.io',
-    //   base: '/wisteriarc.github.io',
+    base: '/wisteriarc.github.io',
     integrations: [mdx(), sitemap(), tailwind(), partytown()],
     markdown: {
       extendDefaultPlugins: true,
