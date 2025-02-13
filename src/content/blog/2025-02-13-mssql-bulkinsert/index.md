@@ -1,6 +1,6 @@
 ---
 title: 'SQL Server on Linux へ Windows環境の Microsoft SQL Server Management Studio から BULK INSERT でデータ登録する'
-slug: 'mac-screensaver-turnoff'
+slug: 'mssql-bulkinsert'
 description: 'SQL Server on Linux へ Windows環境の Microsoft SQL Server Management Studio から BULK INSERT でデータ登録する'
 pubDate: 'Feb 13 2025'
 tags: ["SQL Server"]
