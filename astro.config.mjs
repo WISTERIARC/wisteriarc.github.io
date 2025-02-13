@@ -9,8 +9,8 @@ import partytown from "@astrojs/partytown";
 // https://astro.build/config
 
 export default defineConfig({
-    site: 'https://wisteriarc.github.io',
-    base: '/wisteriarc.github.io',
+    site: 'https://wisteriarc.com',
+    // base: '/wisteriarc.github.io',
     integrations: [mdx(), sitemap(), tailwind(), partytown()],
     markdown: {
       extendDefaultPlugins: true,
