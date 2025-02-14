@@ -3,7 +3,7 @@ title: '外科手術用語一覧'
 slug: 'medical-term-surgery'
 description: '医療用語の日本語、英語、ラテン語、ギリシャ語の一覧'
 pubDate: 'Feb 14 2025'
-tags: ["医療用語"]
+tags: ["Medical term"]
 ---
 
 ## 背景
