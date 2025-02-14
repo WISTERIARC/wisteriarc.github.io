@@ -11,7 +11,17 @@ import partytown from "@astrojs/partytown";
 export default defineConfig({
     site: 'https://wisteriarc.com',
     // base: '/wisteriarc.github.io',
-    integrations: [mdx(), sitemap(), tailwind(), partytown()],
+    integrations: [
+      mdx(),
+      sitemap(),
+      tailwind(),
+      partytown({
+        // Adds dataLayer.push as a forwarding-event.
+        config: {
+          forward: ["dataLayer.push"],
+        },
+      })
+    ],
     markdown: {
       extendDefaultPlugins: true,
       rehypePlugins: [[autoNewTabExternalLinks, {
