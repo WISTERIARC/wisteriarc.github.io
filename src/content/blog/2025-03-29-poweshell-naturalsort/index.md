@@ -2,7 +2,7 @@
 title: 'PowerShell で Windows エクスプローラー の名前の並び順でファイルリストを取得する'
 slug: 'powershell-naturalsort'
 description: 'PowerShell で Windows エクスプローラー の名前の並び順でファイルリストを取得する'
-pubDate: 'Mar 30 2025'
+pubDate: 'Mar 29 2025'
 tags: ["PowerShell"]
 ---
 
