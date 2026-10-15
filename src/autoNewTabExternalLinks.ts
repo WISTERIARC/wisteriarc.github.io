@@ -1,14 +1,13 @@
-import type { RehypePlugin } from '@astrojs/markdown-remark';
 import { visit } from 'unist-util-visit';
 
 interface Options {
 	domain: string;
 }
 
-export const autoNewTabExternalLinks: RehypePlugin = (options?: Options) => {
+export const autoNewTabExternalLinks = (options?: Options) => {
 	const siteDomain = options?.domain ?? '';
 
-	return (tree: unknown) => {
+	return (tree: any) => {
 		visit(tree, (node: any) => {
 			if (node.type != 'element') {
 				return;

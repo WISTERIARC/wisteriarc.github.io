@@ -1,6 +1,6 @@
-import { loadEnv } from 'vite';
+const env = import.meta.env as unknown as Record<string, string | undefined>;
 
-const { GITHUB_PERSONAL_ACCESS_TOKEN } = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), '');
+const GITHUB_PERSONAL_ACCESS_TOKEN = env.GITHUB_PERSONAL_ACCESS_TOKEN ?? '';
 
 export const slugify = (input: string) => {
 	if (!input) return '';
