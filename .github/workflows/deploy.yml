@@ -23,20 +23,21 @@ jobs:
     steps:
       # コードをチェックアウト
       - name: Checkout
-        uses: actions/checkout@v4
-
-      # Node.jsセットアップ
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+        uses: actions/checkout@v5
 
       # pnpmのセットアップ
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v5
         with:
           version: latest
           run_install: false
+
+      # Node.jsセットアップ
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: 'pnpm'
 
       # 依存関係のインストール
       - name: Install dependencies
@@ -49,7 +50,7 @@ jobs:
         run: pnpm run build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
@@ -63,4 +64,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
