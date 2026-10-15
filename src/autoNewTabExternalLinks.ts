@@ -23,7 +23,7 @@ export const autoNewTabExternalLinks = (options?: Options) => {
 
 			if (isExternal(url, siteDomain)) {
 				element.properties!['target'] = '_blank';
-				element.properties!['rel'] = 'noopener';
+				element.properties!['rel'] = 'noopener noreferrer';
 			}
 		});
 	};
@@ -45,6 +45,23 @@ const getUrl = (element: any) => {
 	return url.toString();
 };
 
-const isExternal = (url: string, domain: string) => {
-	return url.startsWith('http') && !url.includes(domain);
+const isExternal = (url: string, siteDomain: string): boolean => {
+	if (!url.startsWith('http://') && !url.startsWith('https://')) {
+		return false;
+	}
+
+	try {
+		const parsedUrl = new URL(url);
+		if (!siteDomain) {
+			return true;
+		}
+
+		const parsedDomain = siteDomain.includes('://')
+			? new URL(siteDomain).hostname
+			: siteDomain.replace(/:\d+$/, '');
+
+		return parsedUrl.hostname !== parsedDomain;
+	} catch {
+		return false;
+	}
 };
